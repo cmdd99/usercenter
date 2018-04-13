@@ -26,7 +26,7 @@ class HttpService
     {
         $type = strtoupper($method);
 
-        if ( 'GET' == $type || 'DELETE' == $type ) {
+        if ('GET' == $type || 'DELETE' == $type) {
             $url = $url . '?' . http_build_query($params);
         }
 
@@ -61,7 +61,7 @@ class HttpService
                 curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
         }
 
-        if(substr($url,0,5)=='https') {
+        if(substr($url, 0, 5) == 'https') {
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 1);
         }
@@ -74,11 +74,14 @@ class HttpService
         $file_contents = curl_exec($curl);//获得返回值
 
         if (curl_errno($curl)) {
-            Log::debug(curl_error($curl), 'http');
+            Log::debug(curl_error($curl), 'requestError');
             curl_close($curl);
             return false;
         }
+
         curl_close($curl);
+        Log::debug($file_contents, '接口返回');
+
         return $file_contents;
     }
 }
