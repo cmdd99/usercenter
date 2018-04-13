@@ -1,0 +1,22 @@
+{
+    "name": "wbphper/usercenter",
+    "description": "DDUserCenter",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wangben",
+            "email": "benwang@hk01.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "usercenter\\libs\\": "src/libs",
+            "usercenter\\service\\": "src/service"
+        }
+    }
+}
