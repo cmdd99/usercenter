@@ -9,6 +9,13 @@ class Log
 {
     public static $config_list  = [];
 
+    public static function init() 
+    {
+        if(!count(self::$config_list)) {
+            self::$config_list = require dirname(__DIR__) . '/libs/Config.php';
+        }
+    }
+
     //普通日志记录
     public static function write($content = '', $describe = 'info', $class = 'info')
     {
@@ -20,9 +27,7 @@ class Log
 
     //Debug日志记录
     public static function debug($content = '', $describe = 'info', $class = 'debug') {
-        if (!self::$config_list) {
-            self::$config_list  = require_once dirname(__DIR__) . '/libs/Config.php';
-        }
+        self::init();
 
         if(self::$config_list['debug'] === false) {
             return true;
@@ -33,9 +38,7 @@ class Log
 
     //开始记录日志
     public static function record($content, $class, $describe) {
-        if (!self::$config_list) {
-            self::$config_list  = require_once dirname(__DIR__) . '/libs/Config.php';
-        }
+        self::init();
 
         $text = is_int($content) || is_string($content) ? $content : is_array($content) ? var_export($content, true) : json_encode($content, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         $file_name = isset(self::$config_list['log_file_name']) && self::$config_list['log_file_name'] ? self::$config_list['log_file_name'] . '.log' : date('Y-m-d') . '.log';

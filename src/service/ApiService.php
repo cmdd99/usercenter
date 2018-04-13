@@ -22,7 +22,7 @@ class ApiService
         //导入路由方法
         self::$method_list  = require_once dirname(__DIR__) . '/libs/Route.php';
         //导入配置文件
-        self::$config_list  = require_once dirname(__DIR__) . '/libs/Config.php';
+        self::$config_list  = require dirname(__DIR__) . '/libs/Config.php';
         //设置服务proxy代理
         self::$serviceProxy = HttpService::getInstance();
     }
