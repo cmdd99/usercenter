@@ -3,9 +3,9 @@
  *配置文件
  */
 return [
-	'appid'          => '123456',
-	'appsecret'      => '654321',
-	'url'            => 'http://www.usercenter.com/api/uc',
+	'appid'          => '',
+	'appsecret'      => '',
+	'url'            => 'http://www.passport.com/api',
 	'debug'          => true,
 	'log_path'       => '',
     'log_file_name'  => '',

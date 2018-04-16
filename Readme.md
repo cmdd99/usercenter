@@ -9,8 +9,8 @@
 
     1、配置Config: /usercenter/src/libs/Config.php
     return [
-        'appid'          => '123456',//appID
-        'appsecret'      => '654321',//app秘钥
+        'appid'          => '',//appID
+        'appsecret'      => '',//app秘钥
         'url'            => '',//1、测试环境：http://ucenter.dadi01.net/api 2、本地环境(hosts[192.168.73.1 www.passport.com])：http://www.passport.com/api
         'debug'          => true,//是否开启Debug模式true|false
         'log_path'       => '',//日志路径，默认/usercenter/src/log/
