@@ -16,5 +16,7 @@ return [
     'changeIntegral'         => 'post',
     'avatar'                 => 'post',
     'rollBackRegister'       => 'get',
-    'test'                     => 'post',
+    'adminGetUserInfo'       => 'get',
+    'adminAddUser'           => 'post',
+    'adminEditorUser'        => 'post'
 ];

@@ -32,6 +32,9 @@
         'changeIntegral'         => 'post',
         'avatar'                 => 'post',
         'rollBackRegister'       => 'get',
+        'adminGetUserInfo'       => 'get',
+        'adminAddUser'           => 'post',
+        'adminEditorUser'        => 'post'
     ];
     
     3、怎么使用
