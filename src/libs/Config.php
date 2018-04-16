@@ -8,5 +8,5 @@ return [
 	'url'            => 'http://www.usercenter.com/api/uc',
 	'debug'          => true,
 	'log_path'       => '',
-    'log_file_name' => '',
+    'log_file_name'  => '',
 ];
