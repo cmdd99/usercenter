@@ -28,19 +28,20 @@ class RedisService
     {
         //导入配置文件
         self::$config_list  = require_once dirname(__DIR__) . '/libs/Config.php';
+
         //Redis配置
         $host     = self::$config_list['redis_host'] ? : '127.0.0.1';
         $port     = self::$config_list['redis_port'] ? : 6379;
         $password = self::$config_list['redis_password'] ? : '';
         $database = self::$config_list['redis_database'] ? : 0;
+
         //Redis连接
-        $this->redis = new \Redis();
         try {
+            $this->redis = new \Redis();
             $this->redis->connect($host, $port);
             if ($password) {
                 $this->redis->auth($password);
             }
-            $this->redis->ping();
 
             //设置redis database哪个库,默认最大不超过16个库,默认采用第0个库
             if ($database <= 16 && $database >= 0) {
@@ -73,8 +74,8 @@ class RedisService
             }
         } else if (strtolower($name) == 'hgetall') {
             return $this->redis->hGetAll('get.user.info.by.uid:' . $params[0]);
-        } else {
-            return false;
         }
+
+        return false;
     }
 }
