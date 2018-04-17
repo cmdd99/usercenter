@@ -5,7 +5,6 @@
     1.提供login,register,logout,sendsms,checksms等服务api
     2.接口设计采用http restful风格，支持post, get方式调用
 # 使用方法
-    demo如下：
 
     一、API接口调用
 
