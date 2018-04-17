@@ -9,4 +9,8 @@ return [
 	'debug'          => true,
 	'log_path'       => '',
     'log_file_name'  => '',
+    'redis_host'     => '127.0.0.1',
+    'redis_password' => '',
+    'redis_port'     => '6379',
+    'redis_database' => '0'
 ];

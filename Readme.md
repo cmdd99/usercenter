@@ -7,6 +7,8 @@
 # 使用方法
     demo如下：
 
+    一、API接口调用
+
     1、配置Config: /usercenter/src/libs/Config.php
     return [
         'appid'          => '',//appID
@@ -15,6 +17,10 @@
         'debug'          => true,//是否开启Debug模式true|false
         'log_path'       => '',//日志路径，默认/usercenter/src/log/
         'log_file_name'  => '',//日志名称，默认date('Y-m-d')
+        'redis_host'     => '127.0.0.1',
+        'redis_password' => '',
+        'redis_port'     => '6379',
+        'redis_database' => '0'
     ];
      
     2、接口Route.php /usercenter/ser/libs/Routh.php（请勿改动）
@@ -37,7 +43,7 @@
         'adminEditorUser'        => 'post'
     ];
     
-    3、怎么使用
+    3、使用教程
     <?php
 
         $info = \usercenter\service\RpcService::getInstance();
@@ -102,6 +108,48 @@
     10046   加密有误
     10047   IP地址不在白名单
     10048   商户账号被冻结
+
+
+    二、Redis缓存数据读取
+
+    1、配置Config: /usercenter/src/libs/Config.php
+    return [
+        'appid'          => '',//appID
+        'appsecret'      => '',//app秘钥
+        'url'            => '',//1、测试环境：http://ucenter.dadi01.net/api 2、本地环境(hosts[192.168.73.1 www.passport.com])：http://www.passport.com/api
+        'debug'          => true,//是否开启Debug模式true|false
+        'log_path'       => '',//日志路径，默认/usercenter/src/log/
+        'log_file_name'  => '',//日志名称，默认date('Y-m-d')
+        'redis_host'     => '127.0.0.1',  //Reids连接地址，默认：127.0.0.1
+        'redis_password' => '',  //Redis连接密码，默认：null
+        'redis_port'     => '6379',  //Redis端口，默认：6379
+        'redis_database' => '0'   //Redis数据库，默认：0
+    ];
+
+    2、使用教程
+    <?php
+
+        $redis = \usercenter\service\RedisService::getInstance();
+
+        /*
+         * 根据Token获取用户ID
+         * @param  String $token Token值 ，例：kfwpek23ko4354ofi0e90jfjjrf0rfj9jf03043r0943j
+         * @return Int | False  
+         */
+        $res = $redis->get($token);
+        print_r($res);
+
+        /*
+         * 根据UCID获取用户基本信息
+         * @param  Int $ucid  用户中心ID ，例：168
+         * @return Array  [mobile, email, unionid, uc_id, create_time, total_integral, used_integral, from_type, from_iteam, name, sex, birthday, id_number, nickname, car_number, hobby, address]  
+         */
+        $res = $redis->hgetall($ucid);
+        print_r($res);
+    ?>
+
+    3、使用说明
+    仅支持get、hgetall两种Redis操作
 
 # license
     采用MIT
