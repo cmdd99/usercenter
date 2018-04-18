@@ -39,7 +39,8 @@
         'rollBackRegister'       => 'get',
         'adminGetUserInfo'       => 'get',
         'adminAddUser'           => 'post',
-        'adminEditorUser'        => 'post'
+        'adminEditorUser'        => 'post',
+        'adminAddUserM'          => 'post',
     ];
     
     3、使用教程
@@ -107,6 +108,8 @@
     10046   加密有误
     10047   IP地址不在白名单
     10048   商户账号被冻结
+    10049   用户信息列表不合法
+    10050   批量个数不合法
 
 
     二、Redis缓存数据读取
@@ -148,7 +151,7 @@
     ?>
 
     3、使用说明
-    仅支持get、hgetall两种Redis操作
+    有且仅支持get、hgetall两种Redis操作
 
 # license
     采用MIT

@@ -18,5 +18,6 @@ return [
     'rollBackRegister'       => 'get',
     'adminGetUserInfo'       => 'get',
     'adminAddUser'           => 'post',
-    'adminEditorUser'        => 'post'
+    'adminEditorUser'        => 'post',
+    'adminAddUserM'          => 'post',
 ];
