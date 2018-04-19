@@ -8,19 +8,17 @@
 
     一、API接口调用
 
-    1、配置Config: /usercenter/src/libs/Config.php
-    return [
-        'appid'          => '',//appID
-        'appsecret'      => '',//app秘钥
-        'url'            => '',//1、测试环境：http://ucenter.dadi01.net/api 2、本地环境(hosts[192.168.73.1 www.passport.com])：http://www.passport.com/api
-        'debug'          => true,//是否开启Debug模式true|false
-        'log_path'       => '',//日志路径，默认/usercenter/src/log/
-        'log_file_name'  => '',//日志名称，默认date('Y-m-d')
-        'redis_host'     => '127.0.0.1',
-        'redis_password' => '',
-        'redis_port'     => '6379',
-        'redis_database' => '0'
-    ];
+    1、配置项目ENV变量(严禁使用前缀)
+    UC_APP_ID=                         #appID
+    UC_APP_SECRET=                     #app秘钥
+    UC_URL=http://www.passport.com/api #用户中心地址
+    UC_DEBUG=true                      #是否开启Debug模式true|false
+    UC_LOG_PATH=                       #日志路径，默认/usercenter/src/log/
+    UC_LOG_FILE_NAME=                  #日志名称，默认date('Y-m-d')
+    UC_REDIS_HOST=127.0.0.1
+    UC_REDIS_PASSWORD=
+    UC_REDIS_PORT=6379
+    UC_REDIS_DATABASE=0
      
     2、接口Route.php /usercenter/ser/libs/Routh.php（请勿改动）
     return [
@@ -114,19 +112,17 @@
 
     二、Redis缓存数据读取
 
-    1、配置Config: /usercenter/src/libs/Config.php
-    return [
-        'appid'          => '',//appID
-        'appsecret'      => '',//app秘钥
-        'url'            => '',//1、测试环境：http://ucenter.dadi01.net/api 2、本地环境(hosts[192.168.73.1 www.passport.com])：http://www.passport.com/api
-        'debug'          => true,//是否开启Debug模式true|false
-        'log_path'       => '',//日志路径，默认/usercenter/src/log/
-        'log_file_name'  => '',//日志名称，默认date('Y-m-d')
-        'redis_host'     => '127.0.0.1',  //Reids连接地址，默认：127.0.0.1
-        'redis_password' => '',  //Redis连接密码，默认：null
-        'redis_port'     => '6379',  //Redis端口，默认：6379
-        'redis_database' => '0'   //Redis数据库，默认：0
-    ];
+    1、配置项目ENV变量(严禁使用前缀)
+    UC_APP_ID=                         #appID
+    UC_APP_SECRET=                     #app秘钥
+    UC_URL=http://www.passport.com/api #用户中心地址
+    UC_DEBUG=true                      #是否开启Debug模式true|false
+    UC_LOG_PATH=                       #日志路径，默认/usercenter/src/log/
+    UC_LOG_FILE_NAME=                  #日志名称，默认date('Y-m-d')
+    UC_REDIS_HOST=127.0.0.1
+    UC_REDIS_PASSWORD=
+    UC_REDIS_PORT=6379
+    UC_REDIS_DATABASE=0
 
     2、使用教程
     <?php
